@@ -1,6 +1,6 @@
 ---
 title: "Quando Vorremmo più Dati: Alcuni Esempi"
-subtitle: "ovvero, se dubitiamo del testing psicologico quando è trasparente, figuriamoci quando non lo è"
+subtitle: "ovvero, se dubitiamo del testing quando è trasparente, figuriamoci quando non lo è"
 # author: "Bhīshma Devavrata"
 format: 
   revealjs:
