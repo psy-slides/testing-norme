@@ -1,0 +1,360 @@
+---
+title: "Quando Vorremmo più Dati: Alcuni Esempi"
+subtitle: "ovvero il buono, il brutto, e il cattivo del testing psicologico"
+# author: "Bhīshma Devavrata"
+format: 
+  revealjs:
+#    theme: "metropolis"
+    slide-level: 2
+    #toc: false
+    incremental: false
+    fig-align: center
+    fig-pos: "H"
+    fig-cap-location: bottom
+    number-sections: false
+    pdf-engine: xelatex
+monofont: "Courier New"
+---
+
+## Premessa: W il *continuous norming*
+
+```{r}
+library(ggplot2)
+load("assets/continuousNorming.RData")
+justplot
+```
+
+---
+
+## Premessa: W il *continuous norming*
+
+```{r}
+plotboth
+```
+
+---
+
+## Premessa: W lo *scoring online*
+
+[Styck e Walsh (2016)](https://doi.org/10.1037/pas0000157){target="_blank"}, meta-analisi di 27 studi: in media il 99.7% dei protocolli Wechsler contiene almeno un errore 
+
+<div style="color:transparent; font-size:35px;">
+**MA...** scende a 41.2% escludendo mera omissione trascrizione
+
+**MA...** i professionisti hanno meno rischio di farne almeno uno (34% vs 70% esclusa omissione trascrizione)
+
+**MA...** protocolli ri-corretti cambiano **mediamente $\pm 1$ punto di QI**
+
+**MA...** varianza molto maggiore (SE $\approx$ $\pm 5$ punti QI) sembra dipendere da **effetto/bias somministratore** (McDermott et al., 2014), **non risolvibile da scoring online**
+</div>
+
+---
+
+## Premessa: W lo *scoring online* ?
+
+[Styck e Walsh (2016)](https://doi.org/10.1037/pas0000157){target="_blank"}, meta-analisi di 27 studi: in media il 99.7% dei protocolli Wechsler contiene almeno un errore 
+
+<div style="font-size:35px;">
+**MA...** scende a 41.2% escludendo mera omissione trascrizione
+
+**MA...** i professionisti hanno meno rischio di farne almeno uno (34% vs 70% esclusa omissione trascrizione)
+
+**MA...** protocolli ri-corretti cambiano **mediamente $\pm 1$ punto di QI**
+
+**MA...** varianza molto maggiore (SE $\approx$ $\pm 5$ punti QI) sembra dipendere da **effetto/bias somministratore** ([McDermott et al., 2014](https://doi.org/10.1037/a0034832){target="_blank"}), **non risolvibile con scoring online**
+</div>
+
+---
+
+## Quali casi esempi vediamo ora...
+
+<span style="font-size:35px;">Cosa sappiamo, cosa non sappiamo, e quali problemi se non abbiamo informazioni importanti su alcuni strumenti di ampio uso per casistiche frequenti:</span>
+
+<div style="font-size:46px;">
+- **Conners 3** (problemi comportamentali, ADHD)
+- **Scale Wechsler: WISC-IV, WPPSI-IV, WISC-V** (casistica di ogni tipo nello sviluppo)
+- **MOXO d-CPT** (ADHD)
+</div>
+
+<p style="font-size:22px; text-align:left; color:#555555">**Disclaimer**: l'elenco NON è esaustivo degli strumenti con possibili problematicità; l'elenco NON implica che le alternative siano necessariamente migliori; la selezione è basata primariamente su esperienza personale; si invitano caldamente gli interessati a verificare autonomamente le informazioni riportate</p>
+
+---
+
+## Conners 3: <span style="font-size:55px;">*scoring online* corregge errori?</span>
+
+:::{.columns}
+::: {.column width="100%"}
+<img src="assets/Duryodhana.png" style="border: 2px solid black; width:85%; display:block; margin:auto;">
+:::
+::: {.column width="100%"}
+<p style="font-size:22px; text-align:center; color:#777777">
+*test effettuato a gennaio 2024 su [psy-portal.giuntitesting.com](https://psy-portal.giuntitesting.com){target="_blank"}*
+</p>
+:::
+:::
+
+---
+
+## Conners 3: <span style="font-size:55px;">psicometria dei *punti T* ?</span>
+
+<img src="assets/globale124.png" style="border: 2px solid black; width:80%; display:block; margin:auto;">
+
+<img src="assets/provocazione187.png" style="border: 2px solid black; width:80%; display:block; margin:auto;">
+
+<p style="font-size:24px; text-align:center; color:#777777">
+*selezione da protocolli di casi reali segnalati a marzo 2024*
+</p>
+
+<span style="font-size:38px;">T = 187 corrisponde a z = +13.7: se facesse riferimento alla curva Gaussiana, dovrebbe esistere meno di *un caso su un milione di miliardi di miliardi di miliardi di miliardi* di persone (1 / 10^42^)</span>
+
+---
+
+## Conners 3: <span style="font-size:55px;">psicometria dei *punti T* ?</span>
+
+Ricevo un manuale (2017) che mi permette effettivamente di ricalcolare *(esempio virtuoso!)* **T = 187 / z = +13.7**... basandomi su un <u>**sottocampione di n = 24**</u> (in base a età e genere). I valori di asimmetria per alcune scale raggiungono e superano 2
+
+```{r, fig.width=12, fig.height=4}
+set.seed(0)
+df = data.frame(punteggio = rgamma(1e4,shape=0.7,rate=0.35))
+# library(moments)
+# skewness(df$punteggio)
+# mean(df$punteggio)
+# sd(df$punteggio)
+ggplot(df,aes(x=punteggio))+
+  coord_cartesian(xlim=c(0,quantile(df$punteggio,0.99)))+
+  geom_density(color=NA,fill="blue",alpha=.4,bw=.1)+
+  scale_x_continuous(breaks=seq(0,100,2))+
+  theme(text=element_text(size=24),title=element_text(size=20),axis.title=element_text(size=24))+
+  ylab("densità")+
+  ggtitle("Possibile distribuzione di punteggi con asimmetria > 2")
+```
+
+---
+
+## Conners 3: <span style="font-size:55px;">psicometria dei *punti T* ?</span>
+
+(perdonate il pippozzo)
+
+La metrica dei punti T e z è interpretabile solo rispetto alla **curva Gaussiana**, dove *Media* e *Deviazione Standard* sono effettivamente parametri che governano la distribuzione
+
+<span style="font-size:31px;">
+Altrimenti... sì, potete sempre calcolare T e z, ma non vi dicono la collocazione della persona nella popolazione rispetto al costrutto di interesse (es. "*provocazione / aggressività*"), ma solo del suo punteggio rispetto agli altri punteggi che, date certe distribuzioni estremamente asimmetriche, riflettono in modo forte le caratteristiche della prova (ma a noi interessa la persona)
+</span>
+
+---
+
+## Conners 3: SINTESI
+
+<div style="font-size:35px;">
+- *Scoring online* **non corregge né segnala palesi incongruenze** dovute a errore umano (almeno a gennaio 2024), mancando uno dei suoi principali vantaggi
+
+- Distribuzioni **estremamente asimmetriche**, e tuttavia *scoring* basato su punti T (**punti z**); inoltre, il manuale "valida" numerosi modelli fattoriali EFA e CFA (che poggiano su assunzioni di normalità) a 4 e 5 fattori usando questi punteggi
+
+- **Dati normativi trasparenti, ma sottocampioni estremamente piccoli** (molti n = 10 — 40 osservazioni) su cui si basano dati normativi, senza *continuous norming*
+</div>
+
+---
+
+## WISC-IV: <span style="font-size:55px;">rischio sovrastima?</span>
+
+Esempio parzialmente virtuoso di trasparenza (fornisce tabelle conversione grezzo-ponderato, ma non statistiche descrittive complete), la **WISC-IV** permette ***indirettamente*** di valutare **traiettorie di sviluppo**
+
+<a href="https://www.rivisteweb.it/doi/10.1449/86189" target="_blank"><img src="assets/pcsArticolo.png" style="border: 2px solid black; width:90%; display:block; margin:auto;"></a>
+
+---
+
+## WISC-IV: <span style="font-size:55px;">rischio sovrastima?</span>
+
+<img src="assets/traiettorie.png" style="width:70%; display:block; margin:auto;">
+
+<div style="font-size:35px;">
+Traiettorie UK curvilinee come ci si aspetta tipicamente e teoricamente; quelle italiane sembrano "eccessivamente" lineari.
+
+*"un individuo [tra gli 11 e i 14 anni] con un punteggio in media in Inghilterra, confrontato con
+norme italiane avrebbe un indice di ragionamento percettivo compreso tra 111 e 117 (…) e
+di QI tra 105 e 106 (…)"* (<a href="https://www.rivisteweb.it/doi/10.1449/86189" target="_blank">Giofrè et al., 2017</a>, p. 150)
+</div>
+
+---
+
+## WPPSI-IV: <span style="font-size:55px;">once again, rischio sovrastima?</span>
+
+La versione per prescolari (WPPSI-IV) potrebbe anch'essa sovrastimare, secondo <a href="https://drive.google.com/file/d/19fpOWGMiPXaD0zLDvAipXIcJlP3wLhpq/view" target="_blanks">un recente report</a>, per motivi diversi
+
+```{r, fig.width=12, fig.height=5}
+ages = c("2,6-2,11","3,0-3,5","3,6-3,11","4,0-4,5","4,6-4,11","5,0-5,5","5,6-5,11","6,0-6,11","7,0-7,7")
+nNormativo=c(622,88,95,69,99,90,98,127,96)
+nClinico=c(7,12,22,20,10,39,36,39,16)
+N=nNormativo+nClinico
+percNormativo = round(100*nNormativo/N)
+percClinico = round(100*nClinico/N)
+freqdf = data.frame(Age=rep(ages,2),perc=c(percNormativo,percClinico),tipo=rep(c("Normativo","Clinico"),each=9))
+freqdf$tipo = relevel(as.factor(freqdf$tipo), ref="Normativo")
+
+ggplot(freqdf,aes(x=Age,y=perc,group=tipo,fill=tipo))+
+  geom_area(stat="identity")+
+  geom_text(data=freqdf[freqdf$tipo=="Clinico",],aes(label=paste0(freqdf$perc[freqdf$tipo=="Clinico"],"%")),
+            vjust=-1,size=6, fontface = "bold", color="darkred")+
+  ylab("% di casi")+
+  xlab("Età (anni, mesi)")+
+  scale_fill_manual(values=c("#88DDFF","darkred"))+
+  scale_y_continuous(breaks=seq(0,100,10))+
+  theme(text=element_text(size=22),legend.title=element_blank(),legend.text=element_text(size=18),
+        axis.text.x=element_text(angle=45,hjust=1))
+```
+
+---
+
+## WPPSI-IV: <span style="font-size:55px;">once again, rischio sovrastima?</span>
+
+<div style="font-size:38px;">
+- Il *"campione totale (N = 1025)"* include 20% casi clinici (disturbi del neurosviuppo; n = 201) in quali in base a Tabella 3-7 potrebbero avere QI medio $\approx 85$ 
+- Tabelle 3-1 e 3-4 suggeriscono che il *"campione totale (N = 1025)"* abbia punteggi ponderati $\approx 10$ e standardizzati $\approx 100$, facendo sospettare che il dato medio dipenda da una pletora di casi clinici (la WPPSI-III li escludeva esplicitamente)
+- Una rielaborazione suggerisce che, se vero, **WPPSI-IV sovrastimerebbe** (almeno rispetto a WPPSI-III) in media **+4 punti di QI**, e **fino quasi a +7 a seconda della fascia di età** 
+</div>
+
+---
+
+## WISC-V: ???
+
+<div style="position: absolute; top: 50%; transform: translateY(-50%); text-align: left; width: 100%; font-size:24px;">
+Del vero "oggetto della contesa" sappiamo poco: non abbiamo le statistiche descrittive dei dati grezzi (a febbraio 2024 risultavano riportate solo per i ponderati, che sono poco utili), né le matrici di correlazione divise per fascia di età (solo la complessiva), né le tabelle di conversione grezzo-ponderato. Questo rende impossibile indagare traiettorie di sviluppo, sapere se overfittano, valutarle rispetto a traiettorie attese, fare qualsiasi *double check* delle norme, o verificare l'invarianza di misura per età
+</div>
+
+---
+
+## Scale Wechsler: SINTESI
+
+<div style="font-size:36px;">
+- *WISC-IV* e *WPPSI-IV* potrebbero sovrastimare QI; impressione clinica con WISC-IV conferma che subtest percettivi sono "troppo spesso" punti di forza indipendentemente da condizione clinica
+
+- Dati normativi forniti sono al meglio *parziali* (WISC-IV: conversione grezzo-ponderato, no statistiche descrittive base), al peggio *del tutto assenti* (WISC-V), costringendo a cieca fiducia nella casa editrice e nel suo *scoring online*
+
+
+- *WISC-V*: comunità accademica e professionale non ha modo di effettuare verifiche indipendenti della qualità psicometrica in base a informazioni pubblicamente disponibili
+</div>
+
+---
+
+## Monopolio? Non per forza
+
+<div style="font-size:55px;">
+Se pensiamo a nomi *"Raven"* e *"Wechsler"*: sì, ci sono diritti di copyright esclusivi
+<br/><br/>
+... ma se intendiamo "fattore *g*" o "teoria CHC" o "modello gerarchico", ovviamente NO!
+</div>
+
+---
+
+## IDS-2: Una valida alternativa (?)
+
+<a href="https://www.hogrefe.it/catalogo/test/bambini-e-adolescenti/valutazione-globale/ids-2-intelligence-and-development-scales-2nd-edition/" target="_blank"><img src="assets/IDS2.png" style="border: 2px solid black; width:90%; display:block; margin:auto;"></a>
+
+<p style="font-size:20px; text-align:center;">
+**disclaimer: fornisce conversione grezzo-ponderato in chiaro, ma non tutte le statistiche descrittive**
+</p>
+
+---
+
+## MOXO d-CPT
+
+<div style="font-size:38px;">
+Per ultimo, Moxo d-CPT (Hogrefe):
+
+- prova computerizzata, *scoring online*; manuale **fornisce descrittive basate solo su continuous norming, non quelle osservate** per indici principali (non per sottoindici); da confronto coi clinici emerge che **piattaforma di <em>scoring</em> NON restituisce punteggi grezzi dei pazienti**!
+
+- fornisce 4 indici ma **non include modelli fattoriali né statistiche sufficienti** per validarli;
+
+- **promette ottima capacità diagnostica per ADHD** (punteggio combinato **AUC = 0.91**)
+</div>
+
+---
+
+## MOXO d-CPT: <span style="font-size:53px;">*troppa* capacità diagnostica?</span>
+
+<div style="font-size:24px;"><b>
+Arrondo, G., Mulraney, M., ... Cortese, S. (2024). Systematic review and meta-analysis: Clinical utility of Continuous Performance Tests for the identification of Attention-Deficit/Hyperactivity Disorder. *Journal of the American Academy of Child and Adolescent Psychiatry, 63*(2), 154-171. <a href="https://doi.org/10.1016/j.jaac.2023.03.011" target="_blank">https://doi.org/10.1016/j.jaac.2023.03.011</a>
+<br><br/>
+</b></div>
+<div style="font-size:32px;">
+<em>"**MOXO** (...) appeared as **an outlier compared to the other CPT versions** (...) When taken at face-value, our analyses suggest a higher accuracy for the MOXO compared to other CPTs. However, **our confidence in this difference is low and might not replicate in future studies** (...) the studies on the MOXO had a **high risk of bias** (...) was likely to have **inflated the clinical utility** measures. Additionally, **authors of MOXO studies were involved in its development and commercialization**, suggesting a **direct conflict of interest**"</em> <span style="color:gray; font-size:25px;">[NOTA: l'eventuale conflitto di interesse farebbe riferimento agli autori originali, NON ai curatori italiani]</span>
+</div>
+
+
+---
+
+## MOXO d-CPT: <span style="font-size:55px;">psicometria dei punti z</span>
+
+<p style="font-size:24px">
+**z estremi fanno pensare che NON stia misurando il costrutto, e descriva solo il punteggio a una prova**
+</p>
+
+:::{.columns}
+::: {.column width="85%"}
+<div style="display: flex; justify-content: center;">
+<img src="assets/moxo1.png" style="border: 0px solid black; display:block; margin:auto;">
+</div>
+:::
+:::
+
+<p style="font-size:22px; text-align:center;">
+da [https://qi.hogrefe.it/rivista/moxo-d-cpt-profilo-di-funzionamento-e-misura-del-c/](https://qi.hogrefe.it/rivista/moxo-d-cpt-profilo-di-funzionamento-e-misura-del-c/){target="_blank"} <br/>(verificato ad aprile 2025)
+</p>
+
+---
+
+## MOXO d-CPT: <span style="font-size:52px;">psicometria del cambiamento</span>
+
+<p style="font-size:26px">
+**variazioni di molte Dev.St. in un tratto a seguito di intervento si ritengono implausibili**
+</p>
+
+:::{.columns}
+::: {.column width="110%"}
+<div style="display: flex; justify-content: center;">
+<img src="assets/moxo1b.png" style="border: 0px solid black; display:block; margin:auto;">
+</div>
+:::
+:::
+<p style="font-size:22px; text-align:center;">
+da [https://qi.hogrefe.it/rivista/moxo-d-cpt-profilo-di-funzionamento-e-misura-del-c/](https://qi.hogrefe.it/rivista/moxo-d-cpt-profilo-di-funzionamento-e-misura-del-c/){target="_blank"} <br/>(verificato ad aprile 2025)
+</p>
+
+---
+
+## MOXO d-CPT: <span style="font-size:55px;">*"profilo intellettivo"*?!</span>
+
+<p style="font-size:34px; text-align:center;">
+**sul serio?**
+</p>
+
+<div style="display: flex; justify-content: center;">
+<a href="https://qi.hogrefe.it/rivista/moxo-d-cpt-un-test-informatizzato-la-valutazione-del-profilo-int/" target="_blank"><img src="assets/moxo2.png" style="border: 0px solid black; display:block; margin:auto;"></a>
+</div>
+
+<p style="font-size:22px; text-align:center;">
+da [https://qi.hogrefe.it/rivista/moxo-d-cpt-un-test-informatizzato-la-valutazione-del-profilo-int/](https://qi.hogrefe.it/rivista/moxo-d-cpt-un-test-informatizzato-la-valutazione-del-profilo-int/){target="_blank"} <br/>(verificato ad aprile 2025)
+</p>
+
+---
+
+## MOXO d-CPT: SINTESI
+
+<div style="font-size:34px;">
+- Scoring online con dati parzialmente in chiaro <span style="font-size:26px;">(ma punti z NON possono essere ricalcolati autonomamente; inoltre statistiche descrittive "grezze" non disponibili e considerate le ampie variazioni età-dipendente sarebbe stato rassicurante vederle)</span>;
+- Ottima "capacità diagnostica" messa in dubbio da recente review e meta-analisi;
+- Punti z estremi, sembrano poco appropriati come indicatore psicometrico, troppo variabili nel tempo e tra indici (il manuale descrive buona stabilità test-retest su sottocampione italiano, ma solo a distanza di 60 minuti);
+- <a href="https://www.hogrefe.it/catalogo/test/bambini-e-adolescenti/attenzione/moxo-d-cpt-continuous-performance-test-online/" target="_blank">*"profilo di funzionamento (...) estremamente dettagliato"*</a> solleva dubbi: il manuale non permette di verificare modello fattoriale, punteggi probabilmente troppo volatili, indici forse poco attendibili
+</div>
+
+---
+
+## SINTESI delle SINTESI
+
+- In linea con l'*Open Science* strumenti psicometrici devono riportare non solo conversione grezzo-ponderato, ma anche tutte le statistiche sufficienti, e possibilmente i dati grezzi anonimizzati, per verifiche indipendenti;
+
+- *Scoring online* e *continuous norming* vanno benissimo ma non esimono assolutamente da quanto sopra;
+
+- In caso contrario, **l'unico garante rimane chi vende gli strumenti** (con eventuali collaboratori), che è (giustamente) **in conflitto di interesse rispetto a evidenza di validità, affidabilità, capacità diagnostica**
+
+
