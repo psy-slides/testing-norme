@@ -179,7 +179,7 @@ di QI tra 105 e 106 (…)"* (<a href="https://www.rivisteweb.it/doi/10.1449/8618
 
 ## WPPSI-IV: <span style="font-size:55px;">once again, rischio sovrastima?</span>
 
-La versione per prescolari (WPPSI-IV) potrebbe anch'essa sovrastimare, secondo <a href="https://drive.google.com/file/d/19fpOWGMiPXaD0zLDvAipXIcJlP3wLhpq/view" target="_blanks">un recente report</a>, per motivi diversi
+La versione per prescolari (WPPSI-IV) potrebbe anch'essa sovrastimare, secondo <a href="https://osf.io/r9y3c" target="_blanks">un recente report</a>, per motivi diversi
 
 ```{r, fig.width=12, fig.height=5}
 ages = c("2,6-2,11","3,0-3,5","3,6-3,11","4,0-4,5","4,6-4,11","5,0-5,5","5,6-5,11","6,0-6,11","7,0-7,7")
