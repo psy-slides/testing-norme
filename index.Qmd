@@ -66,9 +66,9 @@ plotboth
 
 ---
 
-## Quali casi esempi vediamo ora...
+## Quali casi esempio vediamo ora...
 
-<span style="font-size:35px;">Cosa sappiamo, cosa non sappiamo, e quali problemi se non abbiamo informazioni importanti su alcuni strumenti di ampio uso per casistiche frequenti:</span>
+<span style="font-size:35px;">Cosa sappiamo e cosa non sappiamo delle caratteristiche psicometriche di alcuni strumenti di ampio uso:</span>
 
 <div style="font-size:46px;">
 - **Conners 3** (problemi comportamentali, ADHD)
