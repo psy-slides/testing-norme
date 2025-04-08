@@ -1,6 +1,6 @@
 ---
 title: "Quando Vorremmo più Dati: Alcuni Esempi"
-subtitle: "ovvero il buono, il brutto, e il cattivo del testing psicologico"
+subtitle: "ovvero, se dubitiamo del testing psicologico quando è trasparente, figuriamoci quando non lo è"
 # author: "Bhīshma Devavrata"
 format: 
   revealjs:
@@ -208,7 +208,7 @@ ggplot(freqdf,aes(x=Age,y=perc,group=tipo,fill=tipo))+
 ## WPPSI-IV: <span style="font-size:55px;">once again, rischio sovrastima?</span>
 
 <div style="font-size:38px;">
-- Il *"campione totale (N = 1025)"* include 20% casi clinici (disturbi del neurosviuppo; n = 201) in quali in base a Tabella 3-7 potrebbero avere QI medio $\approx 85$ 
+- Il *"campione totale (N = 1025)"* include 20% casi clinici (disturbi del neurosviuppo; n = 201) i quali in base a Tabella 3-7 potrebbero avere QI medio $\approx 85$ 
 - Tabelle 3-1 e 3-4 suggeriscono che il *"campione totale (N = 1025)"* abbia punteggi ponderati $\approx 10$ e standardizzati $\approx 100$, facendo sospettare che il dato medio dipenda da una pletora di casi clinici (la WPPSI-III li escludeva esplicitamente)
 - Una rielaborazione suggerisce che, se vero, **WPPSI-IV sovrastimerebbe** (almeno rispetto a WPPSI-III) in media **+4 punti di QI**, e **fino quasi a +7 a seconda della fascia di età** 
 </div>
@@ -261,7 +261,7 @@ Se pensiamo a nomi *"Raven"* e *"Wechsler"*: sì, ci sono diritti di copyright e
 <div style="font-size:38px;">
 Per ultimo, Moxo d-CPT (Hogrefe):
 
-- prova computerizzata, *scoring online*; manuale **fornisce descrittive basate solo su continuous norming, non quelle osservate** per indici principali (non per sottoindici); da confronto coi clinici emerge che **piattaforma di <em>scoring</em> NON restituisce punteggi grezzi dei pazienti**!
+- prova computerizzata, *scoring online*; manuale **fornisce statistiche descrittive, ma solo basate su continuous norming, non quelle osservate**, per indici principali (non per sottoindici); da confronto coi clinici emerge che **piattaforma di <em>scoring</em> NON restituisce punteggi grezzi dei pazienti**!
 
 - fornisce 4 indici ma **non include modelli fattoriali né statistiche sufficienti** per validarli;
 
