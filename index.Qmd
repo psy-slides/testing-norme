@@ -29,8 +29,12 @@ justplot
 ## Premessa: W il *continuous norming*
 
 ```{r}
-plotboth
+plotboth+
+  annotate("text",x=7,y=1.7,label="(bello! ma... NON dovrebbe essere una scusa per raccogliere \ncampioni piccoli, altrimenti otteniamo la stessa precisione di prima,\n con in più l'incertezza di dipendere da un modello statistico)",size=5)
 ```
+
+<!--<p style="font-size:22px; text-align:left; color:#555555">ma !</p>-->
+
 
 ---
 
@@ -76,7 +80,7 @@ plotboth
 - **MOXO d-CPT** (ADHD)
 </div>
 
-<p style="font-size:22px; text-align:left; color:#555555">**Disclaimer**: l'elenco NON è esaustivo degli strumenti con possibili problematicità; l'elenco NON implica che le alternative siano necessariamente migliori; la selezione è basata primariamente su esperienza personale; si invitano caldamente gli interessati a verificare autonomamente le informazioni riportate</p>
+<p style="font-size:22px; text-align:left; color:#666666">**Disclaimer**: l'elenco NON è esaustivo degli strumenti con possibili problematicità; l'elenco NON implica che le alternative siano necessariamente migliori; la selezione è basata primariamente su esperienza personale; si invitano caldamente gli interessati a verificare autonomamente le informazioni riportate</p>
 
 ---
 
@@ -251,7 +255,7 @@ Se pensiamo a nomi *"Raven"* e *"Wechsler"*: sì, ci sono diritti di copyright e
 <a href="https://www.hogrefe.it/catalogo/test/bambini-e-adolescenti/valutazione-globale/ids-2-intelligence-and-development-scales-2nd-edition/" target="_blank"><img src="assets/IDS2.png" style="border: 2px solid black; width:90%; display:block; margin:auto;"></a>
 
 <p style="font-size:20px; text-align:center;">
-**disclaimer: fornisce conversione grezzo-ponderato in chiaro, ma non tutte le statistiche descrittive**
+**disclaimer: fornisce conversione grezzo-ponderato in chiaro, ma NON tutte le statistiche descrittive**
 </p>
 
 ---
@@ -261,11 +265,11 @@ Se pensiamo a nomi *"Raven"* e *"Wechsler"*: sì, ci sono diritti di copyright e
 <div style="font-size:38px;">
 Per ultimo, Moxo d-CPT (Hogrefe):
 
-- prova computerizzata, *scoring online*; manuale **fornisce statistiche descrittive, ma solo basate su continuous norming, non quelle osservate**, per indici principali (non per sottoindici); da confronto coi clinici emerge che **piattaforma di <em>scoring</em> NON restituisce punteggi grezzi dei pazienti**!
+- prova computerizzata, *scoring online*; manuale **fornisce statistiche descrittive, ma solo basate su continuous norming, non quelle osservate**, per indici principali (non per sottoindici); clinici riferiscono che **piattaforma di <em>scoring</em> NON restituisce punteggi grezzi dei pazienti valutati!**
 
 - fornisce 4 indici ma **non include modelli fattoriali né statistiche sufficienti** per validarli;
 
-- **promette ottima capacità diagnostica per ADHD** (punteggio combinato **AUC = 0.91**)
+- **promette ottima capacità diagnostica per ADHD** (punteggio combinato, **AUC = 0.91**)
 </div>
 
 ---
@@ -286,7 +290,7 @@ Arrondo, G., Mulraney, M., ... Cortese, S. (2024). Systematic review and meta-an
 ## MOXO d-CPT: <span style="font-size:55px;">psicometria dei punti z</span>
 
 <p style="font-size:24px">
-**z estremi fanno pensare che NON stia misurando il costrutto, e descriva solo il punteggio a una prova**
+**z estremi fanno pensare che NON stia misurando il tratto, ma descriva solo il punteggio a una prova**
 </p>
 
 :::{.columns}
@@ -341,9 +345,9 @@ da [https://qi.hogrefe.it/rivista/moxo-d-cpt-un-test-informatizzato-la-valutazio
 ## MOXO d-CPT: SINTESI
 
 <div style="font-size:34px;">
-- Scoring online con dati parzialmente in chiaro <span style="font-size:26px;">(ma punti z NON possono essere ricalcolati autonomamente; inoltre statistiche descrittive "grezze" non disponibili e considerate le ampie variazioni età-dipendente sarebbe stato rassicurante vederle)</span>;
+- Scoring online con dati parzialmente in chiaro <span style="font-size:26px;">(ma punti z NON possono essere ricalcolati autonomamente; inoltre statistiche descrittive "originali" non disponibili)</span>;
 - Ottima "capacità diagnostica" messa in dubbio da recente review e meta-analisi;
-- Punti z estremi, sembrano poco appropriati come indicatore psicometrico, troppo variabili nel tempo e tra indici (il manuale descrive buona stabilità test-retest su sottocampione italiano, ma solo a distanza di 60 minuti);
+- Punti z estremi sembrano poco appropriati come indicatore psicometrico, troppo variabili nel tempo e tra indici (il manuale descrive buona stabilità test-retest su sottocampione italiano, ma solo a distanza di 60 minuti);
 - <a href="https://www.hogrefe.it/catalogo/test/bambini-e-adolescenti/attenzione/moxo-d-cpt-continuous-performance-test-online/" target="_blank">*"profilo di funzionamento (...) estremamente dettagliato"*</a> solleva dubbi: il manuale non permette di verificare modello fattoriale, punteggi probabilmente troppo volatili, indici forse poco attendibili
 </div>
 
