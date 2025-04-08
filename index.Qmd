@@ -148,7 +148,7 @@ Altrimenti... sì, potete sempre calcolare T e z, ma non vi dicono la collocazio
 <div style="font-size:35px;">
 - *Scoring online* **non corregge né segnala palesi incongruenze** dovute a errore umano (almeno a gennaio 2024), mancando uno dei suoi principali vantaggi
 
-- Distribuzioni **estremamente asimmetriche**, e tuttavia *scoring* basato su punti T (**punti z**); inoltre, il manuale "valida" numerosi modelli fattoriali EFA e CFA (che poggiano su assunzioni di normalità) a 4 e 5 fattori usando questi punteggi
+- Distribuzioni **estremamente asimmetriche**, e tuttavia *scoring* basato su punti T (**punti z**); inoltre, il manuale "valida" numerosi modelli fattoriali EFA e CFA (che assumono normalità) a 4 e 5 fattori usando questi punteggi
 
 - **Dati normativi trasparenti, ma sottocampioni estremamente piccoli** (molti n = 10 — 40 osservazioni) su cui si basano dati normativi, senza *continuous norming*
 </div>
