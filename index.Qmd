@@ -118,21 +118,40 @@ plotboth+
 
 ## Conners 3: <span style="font-size:55px;">psicometria dei *punti T* ?</span>
 
+Cosa sarebbe T = 187 in una distribuzione normale
+
+```{r, echo=F, include=T, fig.width=12, fig.height=4}
+ggplot()+
+  stat_function(fun=dnorm,geom="area",fill="blue",alpha=.4,
+                args=list(mean=50,sd=10),
+                xlim=c(15,190),n=1000)+
+  scale_x_continuous(breaks=seq(0,1000,10))+
+  annotate("text",x=187,y=0.009,label="↓",color="red",size=25)+
+  theme(text=element_text(size=24),title=element_text(size=20),axis.title=element_text(size=24))+
+  ylab("densità")+xlab("T")
+```
+
+
+---
+
+## Conners 3: <span style="font-size:55px;">psicometria dei *punti T* ?</span>
+
 Ricevo un manuale (2017) che mi permette effettivamente di ricalcolare *(esempio virtuoso!)* **T = 187 / z = +13.7**... basandomi su un <u>**sottocampione di n = 24**</u> (in base a età e genere). I valori di asimmetria per alcune scale raggiungono e superano 2
 
 ```{r, fig.width=12, fig.height=4}
 set.seed(0)
-df = data.frame(punteggio = rgamma(1e4,shape=0.7,rate=0.35))
+df = data.frame(punteggio = rgamma(2e4,shape=0.7,rate=0.35))
 # library(moments)
 # skewness(df$punteggio)
 # mean(df$punteggio)
 # sd(df$punteggio)
 ggplot(df,aes(x=punteggio))+
   coord_cartesian(xlim=c(0,quantile(df$punteggio,0.99)))+
-  geom_density(color=NA,fill="blue",alpha=.4,bw=.1)+
+  geom_histogram(aes(y=after_stat(density)),color=NA,fill="blue",alpha=.4,binwidth=1)+
   scale_x_continuous(breaks=seq(0,100,2))+
   theme(text=element_text(size=24),title=element_text(size=20),axis.title=element_text(size=24))+
   ylab("densità")+
+  xlab("punteggio osservato")+
   ggtitle("Possibile distribuzione di punteggi con asimmetria > 2")
 ```
 
@@ -235,7 +254,7 @@ Del vero "oggetto della contesa" sappiamo poco: non abbiamo le statistiche descr
 <div style="font-size:36px;">
 - *WISC-IV* e *WPPSI-IV* **potrebbero sovrastimare QI**; impressione clinica con WISC-IV conferma che subtest percettivi sono "troppo spesso" punti di forza, indipendentemente da condizione clinica
 
-- Dati normativi forniti sono al meglio *parziali* (WISC-IV: conversione grezzo-ponderato, no statistiche descrittive base), <b>al peggio *del tutto assenti* (WISC-V)</b>, costringendo a cieca fiducia nella casa editrice e nel suo *scoring online*
+- Dati normativi forniti sono al meglio *parziali* (WISC-IV: conversione grezzo-ponderato, no statistiche descrittive base), <b>al peggio *assenti* (WISC-V)</b>, costringendo a cieca fiducia nella casa editrice e nel suo *scoring online*
 
 
 - *WISC-V*: **comunità accademica e professionale non ha modo di effettuare verifiche indipendenti** della qualità psicometrica in base a informazioni pubblicamente disponibili
@@ -364,3 +383,12 @@ da [https://qi.hogrefe.it/rivista/moxo-d-cpt-un-test-informatizzato-la-valutazio
 
 - In caso contrario, **l'unico garante rimane chi vende gli strumenti** (con eventuali collaboratori), che è (giustamente) **in conflitto di interesse rispetto a evidenza di validità, affidabilità, capacità diagnostica**
 </div>
+
+<!--
+```{r, echo=F,include=F}
+pagedown::chrome_print(input="index.html", 
+                       output="slides.pdf",
+                       options = list(paperWidth = 11, paperHeight = 8.5))
+```
+-->
+
