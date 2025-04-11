@@ -1,7 +1,9 @@
 ---
-title: "Quando Vorremmo più Dati: Alcuni Esempi"
+title: |
+      <img src="assets/logo.png" style="height:75px; display:block; margin: 0 auto;">
+      Quando Vorremmo più Dati: Alcuni Esempi
 subtitle: "ovvero, se dubitiamo del testing quando è trasparente, figuriamoci quando non lo è"
-# author: "Bhīshma Devavrata"
+author: "Enrico Toffalini <br/> <span style='font-size:32px;'>DPG - Università di Padova</span>"
 format: 
   revealjs:
 #    theme: "metropolis"
@@ -12,7 +14,8 @@ format:
     fig-pos: "H"
     fig-cap-location: bottom
     number-sections: false
-    pdf-engine: xelatex
+#    pdf-engine: xelatex
+    favicon: "assets/logo.png"
 monofont: "Courier New"
 ---
 
@@ -354,10 +357,10 @@ da [https://qi.hogrefe.it/rivista/moxo-d-cpt-un-test-informatizzato-la-valutazio
 
 ## SINTESI delle SINTESI
 
-- In linea con l'*Open Science* strumenti psicometrici devono riportare non solo conversione grezzo-ponderato, ma anche tutte le statistiche sufficienti, e possibilmente i dati grezzi anonimizzati, per verifiche indipendenti;
+<div style="font-size:35px;">
+- *Open Science* → strumenti psicometrici devono riportare non solo conversione grezzo-ponderato, ma anche **tutte le statistiche descrittive sufficienti**, possibilmente dati grezzi anonimizzati, per verifiche indipendenti;
 
-- *Scoring online* e *continuous norming* vanno benissimo ma non esimono assolutamente da quanto sopra;
+- *Scoring online* e *continuous norming* vanno benissimo ma non esimono da quanto sopra; dovremmo chiedere uno **standard minimo di trasparenza "per legge"** su strumenti *high-stake*;
 
 - In caso contrario, **l'unico garante rimane chi vende gli strumenti** (con eventuali collaboratori), che è (giustamente) **in conflitto di interesse rispetto a evidenza di validità, affidabilità, capacità diagnostica**
-
-
+</div>
